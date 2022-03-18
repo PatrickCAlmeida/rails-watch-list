@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>');">
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>
@@ -7,10 +7,12 @@
 <div class="cards">
   <% @list.movies.each do |movie| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url%>)">
-      <%= movie.title %>
+      </h2><%= movie.title %><h2>
+      <p><%= movie.rating %> </p>
     </div>
   <% end %>
 </div>
 
 <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "btn btn-ghost" %>
 <%= link_to 'Back to lists', lists_path, class: "btn btn-ghost"%>
+<%= link_to " Delete list ", list_path(@list), class: "btn btn-ghost", method: :delete, data: { confirm: "Are you sure?" } %>
