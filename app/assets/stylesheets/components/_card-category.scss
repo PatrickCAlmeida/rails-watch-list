@@ -12,4 +12,15 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  transition-duration: 0.5s;
+}
+
+.card-category:hover {
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+
+.card-category:hover {
+  opacity: 0.3;
 }
